@@ -7,39 +7,36 @@ export interface NewTaskFormProps {
 
 export const NewTaskForm: React.FC<NewTaskFormProps> = (props) => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
   return (
     <div className="w-full max-w-xs">
       <form
         className="bg-white shadow-md rounded pt-6 pb-8 mb-4"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(props.onSubmit)}
       >
         <div className="flex flex-wrap px-3 -mx-3 mb-6">
-          <div className="w-full md:w-3/4 px-3 mb-6 md:mb-0">
+          <div className="w-3/4 px-3 mb-6 md:mb-0">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Task name
             </label>
             <input
-              name="Name"
+              name="name"
               type="text"
               ref={register({ required: true })}
               className={`shadow appearance-none border rounded w-full py-2 px-3 -pr-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                errors.Name && "border-red-500"
+                errors.name && "border-red-500"
               }`}
             ></input>
-            {errors.Name && (
+            {errors.name && (
               <p className="text-red-500 text-xs italic">* required</p>
             )}
           </div>
-          <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+          <div className="w-1/4 px-3 mb-6 md:mb-0">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Point
             </label>
             <div className="relative">
               <select
-                name="Point"
+                name="point"
                 ref={register}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
               >
@@ -60,7 +57,7 @@ export const NewTaskForm: React.FC<NewTaskFormProps> = (props) => {
                 </svg>
               </div>
             </div>
-            {errors.Point && (
+            {errors.point && (
               <p className="text-red-500 text-xs italic"> * required</p>
             )}
             <div className="flex items-center justify-between"></div>
@@ -72,7 +69,7 @@ export const NewTaskForm: React.FC<NewTaskFormProps> = (props) => {
               Description
             </label>
             <textarea
-              name="Description"
+              name="description"
               rows={5}
               ref={register}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

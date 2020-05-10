@@ -1,17 +1,17 @@
 import React from "react";
 import { Button } from "@storybook/react/demo";
-import { NewTaskForm } from "../components/base/NewTaskForm";
+import { LoginForm } from "../components/base/LoginForm";
 
 export default {
-  title: "NewTaskForm",
+  title: "LoginForm",
   component: Button,
 };
 
-export const NewTaskFormStory = () => {
+export const LoginFormStory = () => {
   const newTaskProps = {
     onSubmit: (data) => {
       console.log(data);
     },
   };
-  return <NewTaskForm {...newTaskProps}></NewTaskForm>;
+  return <LoginForm {...newTaskProps}></LoginForm>;
 };
