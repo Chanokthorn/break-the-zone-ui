@@ -1,23 +1,23 @@
-import React, { useCallback } from "react";
-import { TaskCardProps, TaskCard } from "./TaskCard";
+import React from "react";
+import { TaskCardProps } from "./TaskCard";
+
+export interface StatsProps {
+  sum: number;
+  completed: number;
+  stack: number;
+}
 
 export interface ProfileProps {
-  img: string;
+  img?: string;
   username: string;
-  email: string;
-  tasks: TaskCardProps[];
+  email?: string;
+  stats?: StatsProps;
+  tasks?: TaskCardProps[];
 }
 
 export const Profile = (props: ProfileProps) => {
-  const getScore = useCallback(() => {
-    let sum = 0;
-    props.tasks.forEach((task) => {
-      sum += task.point;
-    });
-    return sum;
-  }, [props.tasks]);
   return (
-    <div className="max-w-sm w-full border-gray-400 rounded bg-white shadow-lg px-8 pt-6 pb-8">
+    <div className="max-w-sm w-full rounded bg-white px-8 pt-6 pb-8">
       <div className="w-full h-20 text-center justify-center">
         <img
           className="h-16 w-16 rounded-full m-auto  "
@@ -28,12 +28,11 @@ export const Profile = (props: ProfileProps) => {
       <div className="w-full h-24">
         <p className="text-center">Username: {props.username}</p>
         <p className="text-center">E-mail: {props.email}</p>
-        <p className="text-center">Score: {getScore()}</p>
-      </div>
-      <div className="w-full flex flex-col">
-        {props.tasks.map((task, i) => (
-          <TaskCard {...task} key={`profile-task-card-${i}`}></TaskCard>
-        ))}
+        <p className="text-center">Score: {props.stats?.sum || "-"}</p>
+        <p className="text-center">
+          Completed: {props.stats?.completed || "-"}
+        </p>
+        <p className="text-center">Stack: {props.stats?.stack || "-"}</p>
       </div>
     </div>
   );

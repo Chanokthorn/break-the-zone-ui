@@ -5373,7 +5373,7 @@ video {
 }
 
 .h-screen {
-  height: 100vh;
+  height: 90vh;
 }
 
 .text-xs {
@@ -17651,7 +17651,7 @@ video {
   }
 
   .sm\:h-screen {
-    height: 100vh;
+    height: 90vh;
   }
 
   .sm\:text-xs {
@@ -29930,7 +29930,7 @@ video {
   }
 
   .md\:h-screen {
-    height: 100vh;
+    height: 90vh;
   }
 
   .md\:text-xs {
@@ -42209,7 +42209,7 @@ video {
   }
 
   .lg\:h-screen {
-    height: 100vh;
+    height: 90vh;
   }
 
   .lg\:text-xs {
@@ -54488,7 +54488,7 @@ video {
   }
 
   .xl\:h-screen {
-    height: 100vh;
+    height: 90vh;
   }
 
   .xl\:text-xs {

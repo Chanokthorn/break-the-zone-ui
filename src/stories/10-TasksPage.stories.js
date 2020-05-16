@@ -1,20 +1,17 @@
 import React from "react";
 import { Button } from "@storybook/react/demo";
-import { Navbar } from "../components/layout/Navbar";
-import { BrowserRouter as Router } from "react-router-dom";
+import { TasksPage } from "../components/pages/TasksPage";
 import { UserProvider } from "../components/context/UserProvider";
 
 export default {
-  title: "NavBar",
+  title: "TasksPage",
   component: Button,
 };
 
-export const NavBarStory = () => {
+export const TaskPageStory = () => {
   return (
     <UserProvider>
-      <Router>
-        <Navbar></Navbar>
-      </Router>
+      <TasksPage></TasksPage>
     </UserProvider>
   );
 };

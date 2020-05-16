@@ -1,14 +1,23 @@
-import React from "react";
-import { Button } from "@storybook/react/demo";
-import { Profile } from "../components/base/Profile";
+import { ProfileProps } from "../components/base/Profile";
+import { TaskCardProps } from "../components/base/TaskCard";
 
-export default {
-  title: "ProfileCard",
-  component: Button,
+export const UpdateUserProfile = async (
+  token: string
+): Promise<ProfileProps> => {
+  return {
+    username: "johns",
+    img: "https://randomuser.me/api/portraits/thumb/men/44.jpg",
+    tasks: [],
+    stats: {
+      sum: 20,
+      completed: 3,
+      stack: 4,
+    },
+  };
 };
 
-export const ProfileCardStory = () => {
-  const tasks = [
+export const GetTasks = async (username: string): Promise<TaskCardProps[]> => {
+  return [
     {
       id: 0,
       name: "first something",
@@ -42,16 +51,14 @@ export const ProfileCardStory = () => {
         "Another writing challenge can be to take the individual sentences in the random paragraph and incorporate a single sentence from that into a new paragraph to create a short story. Unlike the random sentence generator, the sentences from the random paragraph will have some connection to one another so it will be a bit different. You also won't know exactly how many sentences will appear in the random paragraph.",
     },
   ];
-  const profileProp = {
-    img: "https://randomuser.me/api/portraits/thumb/men/44.jpg",
-    username: "John Johnson",
-    email: "john.j@john.com",
-    tasks: tasks,
-    stats: {
-      sum: 20,
-      completed: 4,
-      stack: 5,
-    },
-  };
-  return <Profile {...profileProp}></Profile>;
 };
+
+// export const GetProfile = async (username: string): Promise<ProfileProps> => {
+//   return {
+//     img:,
+//     username:,
+//     email:,
+//     stats:,
+//     tuasks:,
+//   }
+// }

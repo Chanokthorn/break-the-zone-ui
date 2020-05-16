@@ -2,7 +2,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 export interface NewTaskFormProps {
-  onSubmit: () => any;
+  onSubmit: (value: any) => any;
+}
+
+export interface TaskFormProps {
+  name: string;
+  point: 0 | 1 | 2 | 3 | 4 | 5;
+  description: string;
 }
 
 export const NewTaskForm: React.FC<NewTaskFormProps> = (props) => {
@@ -10,7 +16,7 @@ export const NewTaskForm: React.FC<NewTaskFormProps> = (props) => {
   return (
     <div className="w-full max-w-xs">
       <form
-        className="bg-white shadow-md rounded pt-6 pb-8 mb-4"
+        className="bg-white pt-6 pb-8 mb-4"
         onSubmit={handleSubmit(props.onSubmit)}
       >
         <div className="flex flex-wrap px-3 -mx-3 mb-6">

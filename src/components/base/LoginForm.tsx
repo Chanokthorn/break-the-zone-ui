@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 export interface LoginFormProps {
-  onSubmit: () => any;
+  onSubmit: (value: any) => any;
 }
 
 export const LoginForm = (props: LoginFormProps) => {
@@ -10,7 +10,7 @@ export const LoginForm = (props: LoginFormProps) => {
   return (
     <div className="max-w-sm w-full">
       <form
-        className="rounded shadow-lg px-8 pt-6 pb-8"
+        className="rounded px-8 pt-6 pb-8"
         onSubmit={handleSubmit(props.onSubmit)}
       >
         <div className="mb-4">
@@ -50,12 +50,12 @@ export const LoginForm = (props: LoginFormProps) => {
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-auto"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-auto mr-2"
           >
             Login
           </button>
           <p className="mx-auto">
-            no account?{" "}
+            no account?
             <a href="" className="text-blue-700 hover:text-blue-500">
               sign up
             </a>
